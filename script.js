@@ -198,7 +198,10 @@ createApp({
                         }
                     ],
                 }
-            ],            
+            ],
+
+            // Add the currentContact property to the data object and set it to null
+            currentContact: null,
         }
     },
 
@@ -212,9 +215,25 @@ createApp({
 
         getLastMessageTime(contact) {
             const lastMessage = contact.messages[contact.messages.length - 1];
-            return lastMessage ? lastMessage.date : '';
+            if (lastMessage) {
+                const dateParts = lastMessage.date.split(' ');
+                const [day, month, year] = dateParts[0].split('/');
+                const [hour, minute, second] = dateParts[1].split(':');
+                const messageDate = new Date(year, month - 1, day, hour, minute, second);
+                const formattedTime = messageDate.toLocaleTimeString('it-IT', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                });
+                return formattedTime;
+            }
+            return '';
         },
-        
+
+        setIndexContact(index) {
+            // Update the currentContact property with the index of the contact clicked
+            this.currentContact = index;
+        },
+
     },
 
 }).mount('#app');
