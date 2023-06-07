@@ -1,6 +1,5 @@
 // Milestone 1
 // Replica of the graphics with the ability to have messages written by the user (green) and the interlocutor (white), assigning two different CSS classes
-// Dynamic display of the contacts list: using the v-for directive, display the name and image of each contact
 
 // Milestone 2
 // Dynamic display of messages: using the v-for directive, display all messages related to the active contact within the conversation panel
@@ -202,6 +201,9 @@ createApp({
 
             // Add the newMessage property to the data object and set it to an empty string
             newMessage: '',
+
+
+            clickedContact: null,
         }
     },
 
@@ -229,9 +231,10 @@ createApp({
             return '';
         },
 
-        setIndexContact(index) {
-            // Update the currentContact property with the index of the contact clicked
+
+        setIndexContact(index, contact) {
             this.currentContact = index;
+            this.clickedContact = index;
         },
 
         sendMessage() {

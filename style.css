@@ -225,6 +225,10 @@ div.contact-container {
     position: relative;
 }
 
+.clicked-contact {
+    background-color: rgba(233,235,235,255);
+}
+
 div.contact-avatar-and-info-container {
     display: flex;
     flex-direction: row;
@@ -296,6 +300,32 @@ div.active-user-chat {
     background-image: url('./img/mine.jpg');
     overflow-y: scroll;
     scrollbar-width: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px;
+}
+
+.message {
+    margin: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    width: 320px;
+    max-width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.sent {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+}
+
+.received {
+    background-color: #fff;
+    align-self: flex-start;
 }
 
 div.active-user-text-space {
@@ -337,5 +367,4 @@ div.active-user-text-space .input-container input[type="text"] {
 
 div.contact-time-header {
     color: #b1b1b1;
-
 }

@@ -22,7 +22,7 @@
     <!-- App Container -->
     <div id="app">
         <div class="background">
-            
+
             <div class="background-header">
 
             </div>
@@ -79,13 +79,15 @@
                     </div>
 
                     <div class="contacts-list">
-                        <div v-for="(contact, index) in contacts" :key="contact.name" :class="(index === currentContact ? 'contact-active' : null)" class="contact-container" @click="setIndexContact(index)">
+                        <div v-for="(contact, index) in contacts" :key="contact.name"
+                            :class="['contact-container', { 'contact-active': index === currentContact }, { 'clicked-contact': index === clickedContact }]"
+                            @click="setIndexContact(index, contact)">
 
                             <div class="contact-avatar-and-info-container">
                                 <div class="contact-avatar">
                                     <img :src="contact.avatar" :alt="contact.name">
                                 </div>
-    
+
                                 <div class="contact-info">
                                     <div class="contact-name">{{ contact.name }}</div>
                                     <div class="contact-last-message">{{ getLastMessage(contact) }}</div>
@@ -98,9 +100,9 @@
 
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
                 <div class="right-chat">
 
                     <div class="active-user-chat-header">
@@ -126,7 +128,10 @@
                     </div>
 
                     <div class="active-user-chat">
-                        
+                        <div v-for="message in contacts[currentContact].messages" :key="message.date"
+                            :class="['message', message.status === 'sent' ? 'sent' : 'received']">
+                            {{ message.message }}
+                        </div>
                     </div>
 
                     <div class="active-user-text-space">
