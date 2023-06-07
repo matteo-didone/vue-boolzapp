@@ -64,6 +64,12 @@ div.left-contacts
     background-color: rgba(255,255,255,255);
 }
 
+div.user-settings
+{
+    height: 70px;
+    background-color: rgba(234,234,234,255);
+}
+
 div.right-chat
 {
     height: 100%;
