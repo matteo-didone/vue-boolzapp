@@ -105,7 +105,18 @@
 
                     <div class="active-user-chat-header">
 
-                        
+                        <div class="contact-avatar-and-info-container">
+                            <div class="contact-avatar">
+                                <img :src="contacts[currentContact].avatar" :alt="contacts[currentContact].name">
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-name">{{ contacts[currentContact].name }}</div>
+                                <div class="contact-last-message">{{ getLastMessage(contacts[currentContact]) }}</div>
+                            </div>
+                            <div class="contact-time">
+                                {{ getLastMessageTime(contacts[currentContact]) }}
+                            </div>
+                        </div>
 
                         <div class="icons">
                             <i class="fa-solid fa-search"></i>
