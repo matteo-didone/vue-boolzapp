@@ -134,7 +134,7 @@ div.notification-settings {
     align-items: center;
     justify-content: flex-start;
     padding: 10px;
-    background-color: rgba(142,218,252,255);
+    background-color: rgba(142, 218, 252, 255);
 }
 
 div.bell-container {
@@ -145,8 +145,8 @@ div.bell-container {
     height: 50px;
     border-radius: 50%;
     font-size: 20px;
-    color: rgba(142,218,252,255);
-    background-color: rgba(255,255,255,255);
+    color: rgba(142, 218, 252, 255);
+    background-color: rgba(255, 255, 255, 255);
     cursor: pointer;
 }
 
@@ -158,6 +158,44 @@ div.notification-text {
 
 div.notification-text a {
     color: #668992;
+}
+
+div.search-bar {
+    background-color: rgba(253, 253, 253, 255);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+
+div.search-bar .magnifying-lens-container {
+    width: 75px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 0.3px solid lightgray;
+    border-radius: 5px;
+}
+
+div.search-bar .magnifying-lens-container i {
+    color: #b1b1b1;
+    font-size: 20px;
+}
+
+div.search-bar .input-container {
+    flex-grow: 1;
+}
+
+div.search-bar .input-container input[type="text"] {
+    width: 95%;
+    border: 0.3px solid lightgray;
+    border-radius: 5px;
+    height: 30px;
+    outline: none;
+    padding: 10px;
 }
 
 div.right-chat {
