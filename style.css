@@ -3,6 +3,12 @@
 *:before,
 *:after {
     box-sizing: border-box;
+    font-family: 'Aspen-Black', sans-serif ,'FontAwesome';
+}
+
+@font-face {
+    font-family: 'Aspen-Black', sans-serif;
+    src: url('./font/Aspen-ExtraLight.woff2');
 }
 
 /* Set additional styling options for the body */
