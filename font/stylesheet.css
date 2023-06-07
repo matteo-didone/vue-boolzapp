@@ -1,0 +1,216 @@
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-ThinItalic.eot');
+    src: local('Aspen Thin Italic'), local('Aspen-ThinItalic'),
+        url('Aspen-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-ThinItalic.woff2') format('woff2'),
+        url('Aspen-ThinItalic.woff') format('woff'),
+        url('Aspen-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-Black.eot');
+    src: local('Aspen Black'), local('Aspen-Black'),
+        url('Aspen-Black.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-Black.woff2') format('woff2'),
+        url('Aspen-Black.woff') format('woff'),
+        url('Aspen-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-Thin.eot');
+    src: local('Aspen Thin'), local('Aspen-Thin'),
+        url('Aspen-Thin.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-Thin.woff2') format('woff2'),
+        url('Aspen-Thin.woff') format('woff'),
+        url('Aspen-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-Italic.eot');
+    src: local('Aspen Italic'), local('Aspen-Italic'),
+        url('Aspen-Italic.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-Italic.woff2') format('woff2'),
+        url('Aspen-Italic.woff') format('woff'),
+        url('Aspen-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-ExtraBoldItalic.eot');
+    src: local('Aspen ExtraBold Italic'), local('Aspen-ExtraBoldItalic'),
+        url('Aspen-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-ExtraBoldItalic.woff2') format('woff2'),
+        url('Aspen-ExtraBoldItalic.woff') format('woff'),
+        url('Aspen-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-Bold.eot');
+    src: local('Aspen Bold'), local('Aspen-Bold'),
+        url('Aspen-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-Bold.woff2') format('woff2'),
+        url('Aspen-Bold.woff') format('woff'),
+        url('Aspen-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-ExtraLight.eot');
+    src: local('Aspen Extra Light'), local('Aspen-ExtraLight'),
+        url('Aspen-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-ExtraLight.woff2') format('woff2'),
+        url('Aspen-ExtraLight.woff') format('woff'),
+        url('Aspen-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-UltraLight.eot');
+    src: local('Aspen Ultra Light'), local('Aspen-UltraLight'),
+        url('Aspen-UltraLight.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-UltraLight.woff2') format('woff2'),
+        url('Aspen-UltraLight.woff') format('woff'),
+        url('Aspen-UltraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-Regular.eot');
+    src: local('Aspen Regular'), local('Aspen-Regular'),
+        url('Aspen-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-Regular.woff2') format('woff2'),
+        url('Aspen-Regular.woff') format('woff'),
+        url('Aspen-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-ExtraBold.eot');
+    src: local('Aspen ExtraBold'), local('Aspen-ExtraBold'),
+        url('Aspen-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-ExtraBold.woff2') format('woff2'),
+        url('Aspen-ExtraBold.woff') format('woff'),
+        url('Aspen-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-Light.eot');
+    src: local('Aspen Light'), local('Aspen-Light'),
+        url('Aspen-Light.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-Light.woff2') format('woff2'),
+        url('Aspen-Light.woff') format('woff'),
+        url('Aspen-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-UltraLightItalic.eot');
+    src: local('Aspen Ultra Light Italic'), local('Aspen-UltraLightItalic'),
+        url('Aspen-UltraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-UltraLightItalic.woff2') format('woff2'),
+        url('Aspen-UltraLightItalic.woff') format('woff'),
+        url('Aspen-UltraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-LightItalic.eot');
+    src: local('Aspen Light Italic'), local('Aspen-LightItalic'),
+        url('Aspen-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-LightItalic.woff2') format('woff2'),
+        url('Aspen-LightItalic.woff') format('woff'),
+        url('Aspen-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-BlackItalic.eot');
+    src: local('Aspen Black Italic'), local('Aspen-BlackItalic'),
+        url('Aspen-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-BlackItalic.woff2') format('woff2'),
+        url('Aspen-BlackItalic.woff') format('woff'),
+        url('Aspen-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-BoldItalic.eot');
+    src: local('Aspen Bold Italic'), local('Aspen-BoldItalic'),
+        url('Aspen-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-BoldItalic.woff2') format('woff2'),
+        url('Aspen-BoldItalic.woff') format('woff'),
+        url('Aspen-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-ExtraLightItalic.eot');
+    src: local('Aspen Extra Light Italic'), local('Aspen-ExtraLightItalic'),
+        url('Aspen-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-ExtraLightItalic.woff2') format('woff2'),
+        url('Aspen-ExtraLightItalic.woff') format('woff'),
+        url('Aspen-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-Medium.eot');
+    src: local('Aspen Medium'), local('Aspen-Medium'),
+        url('Aspen-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-Medium.woff2') format('woff2'),
+        url('Aspen-Medium.woff') format('woff'),
+        url('Aspen-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aspen';
+    src: url('Aspen-MediumItalic.eot');
+    src: local('Aspen Medium Italic'), local('Aspen-MediumItalic'),
+        url('Aspen-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('Aspen-MediumItalic.woff2') format('woff2'),
+        url('Aspen-MediumItalic.woff') format('woff'),
+        url('Aspen-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
