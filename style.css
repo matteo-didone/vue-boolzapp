@@ -334,3 +334,8 @@ div.active-user-text-space .input-container input[type="text"] {
     outline: none;
     padding: 10px;
 }
+
+div.contact-time-header {
+    color: #b1b1b1;
+
+}

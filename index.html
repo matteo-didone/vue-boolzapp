@@ -111,10 +111,9 @@
                             </div>
                             <div class="contact-info">
                                 <div class="contact-name">{{ contacts[currentContact].name }}</div>
-                                <div class="contact-last-message">{{ getLastMessage(contacts[currentContact]) }}</div>
-                            </div>
-                            <div class="contact-time">
-                                {{ getLastMessageTime(contacts[currentContact]) }}
+                                <div class="contact-time-header">
+                                    Ultimo accesso oggi alle {{ getLastMessageTime(contacts[currentContact]) }}
+                                </div>
                             </div>
                         </div>
 
