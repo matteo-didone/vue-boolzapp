@@ -205,6 +205,16 @@ createApp({
     // Methods of the app
     methods: {
 
+        getLastMessage(contact) {
+            const lastMessage = contact.messages[contact.messages.length - 1];
+            return lastMessage ? lastMessage.message : '';
+        },
+
+        getLastMessageTime(contact) {
+            const lastMessage = contact.messages[contact.messages.length - 1];
+            return lastMessage ? lastMessage.date : '';
+        },
+        
     },
 
 }).mount('#app');
