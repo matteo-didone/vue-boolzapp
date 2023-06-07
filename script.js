@@ -157,7 +157,7 @@ createApp({
                         }
                     ],
                 },
-                // Contact Federico
+                // Contac   t Federico
                 {
                     name: 'Federico',
                     avatar: './img/avatar_7.jpg',

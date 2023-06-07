@@ -132,6 +132,7 @@ div.user-settings {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-right: 0.3px solid lightgray;
 }
 
 div.notification-settings {
@@ -263,7 +264,7 @@ div.contact-container:last-child {
 
 .contact-time {
     font-size: 13px;
-    color: #b1b1b1;
+    color: #bdc4ce;
     position: absolute;
     top: 20px;
     right: 20px;
@@ -272,11 +273,64 @@ div.contact-container:last-child {
 
 .contact-last-message {
     font-size: 15px;
-    color: #b1b1b1;
+    color: #bdc4ce;
 }
 
 div.right-chat {
     height: 100%;
     width: 70%;
     background-color: rgba(243, 238, 234, 255);
+}
+
+div.active-user-chat-header {
+    height: 70px;
+    width: 100%;
+    background-color: rgba(234, 234, 234, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.active-user-chat {
+    height: calc(100% - 140px);
+    background-image: url('./img/mine.jpg');
+    overflow-y: scroll;
+    scrollbar-width: 1px;
+}
+
+div.active-user-text-space {
+    height: 70px;
+    background-color: rgba(243,238,234,255);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+div.active-user-text-space .emoji-container {
+    padding-left: 40px;
+    cursor: pointer;
+}
+
+div.active-user-text-space .voice-message {
+    padding-right: 35px;
+    cursor: pointer;
+}
+
+div.active-user-text-space .emoji-container i, div.active-user-text-space .voice-message i  {
+    color: #b1b1b1;
+    font-size: 20px;
+}
+
+div.active-user-text-space .input-container {
+    flex-grow: 1;
+    padding-left: 40px;
+}
+
+div.active-user-text-space .input-container input[type="text"] {
+    width: 95%;
+    border: 0.3px solid lightgray;
+    border-radius: 5px;
+    height: 50px;
+    outline: none;
+    padding: 10px;
 }
