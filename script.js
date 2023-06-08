@@ -1,10 +1,3 @@
-// Milestone 1
-// Replica of the graphics with the ability to have messages written by the user (green) and the interlocutor (white), assigning two different CSS classes
-
-// Milestone 2
-// Dynamic display of messages: using the v-for directive, display all messages related to the active contact within the conversation panel
-// Clicking on a contact shows the conversation of the clicked contact
-
 // Milestone 3
 // Adding a message: the user writes a text in the bottom part and by pressing "enter," the text is added to the thread above as a green message
 // Interlocutor's response: upon entering a message, the user will receive an "OK" as a response, which will appear after 1 second.
@@ -14,7 +7,6 @@
 
 // Milestone 5 - optional
 // Delete message: by clicking on the message, a dropdown menu appears that allows deleting the selected message
-// Displaying the time and last sent/received message in the contacts list.
 
 const { createApp } = Vue;
 
