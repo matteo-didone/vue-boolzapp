@@ -1,7 +1,3 @@
-// Milestone 3
-// Adding a message: the user writes a text in the bottom part and by pressing "enter," the text is added to the thread above as a green message
-// Interlocutor's response: upon entering a message, the user will receive an "OK" as a response, which will appear after 1 second.
-
 // Milestone 4
 // User search: by typing something in the left input, only the contacts whose names contain the entered letters are displayed (e.g., Marco, Matteo, Martina -> I write "mar" and only Marco and Martina remain)
 
@@ -223,6 +219,23 @@ createApp({
             return '';
         },
 
+        getMessageTime(contact, index) {
+            const message =  contact.messages[index];
+
+            if (message) {
+                const dateParts = message.date.split(' ');
+                const [day, month, year] = dateParts[0].split('/');
+                const [hour, minute, second] = dateParts[1].split(':');
+                const messageDate = new Date(year, month - 1, day, hour, minute, second);
+                const formattedTime = messageDate.toLocaleTimeString('it-IT', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                });
+                return formattedTime;
+            }
+            return '';
+        },
+
 
         setIndexContact(index, contact) {
             this.currentContact = index;
@@ -230,21 +243,30 @@ createApp({
         },
 
         sendMessage() {
-            const message = {
-                date: new Date().toLocaleString(),
-                message: this.newMessage,
-                status: 'sent',
-            };
-            this.contacts[this.currentContact].messages.push(message);
-            this.newMessage = ''; // Clear the input field
-            setTimeout(() => {
-                const response = {
-                    date: new Date().toLocaleString(),
-                    message: 'Ok',
-                    status: 'received',
+            if (this.newMessage.trim() !== '') {
+                const currentDate = new Date();
+                const formattedDate = `${(currentDate.getMonth() + 1)
+                    .toString()
+                    .padStart(2, '0')}/${currentDate.getDate().toString().padStart(2, '0')}/${currentDate.getFullYear()} ${currentDate.getHours().toString().padStart(2, '0')}:${currentDate.getMinutes().toString().padStart(2, '0')}:${currentDate.getSeconds().toString().padStart(2, '0')}`;
+
+                const message = {
+                    date: formattedDate,
+                    message: this.newMessage,
+                    status: 'sent',
                 };
-                this.contacts[this.currentContact].messages.push(response);
-            }, 1000);
+
+                this.contacts[this.currentContact].messages.push(message);
+                this.newMessage = ''; // Clear the input field
+
+                setTimeout(() => {
+                    const response = {
+                        date: formattedDate,
+                        message: 'Ok',
+                        status: 'received',
+                    };
+                    this.contacts[this.currentContact].messages.push(response);
+                }, 1000);
+            }
         },
 
     },

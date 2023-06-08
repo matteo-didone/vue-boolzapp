@@ -114,7 +114,7 @@
                             <div class="contact-info">
                                 <div class="contact-name">{{ contacts[currentContact].name }}</div>
                                 <div class="contact-time-header">
-                                    Ultimo accesso oggi alle {{ getLastMessageTime(contacts[currentContact]) }}
+                                    Ultimo accesso oggi alle {{ getLastMessageTime(contacts[currentContact]), index }}
                                 </div>
                             </div>
                         </div>
@@ -128,9 +128,12 @@
                     </div>
 
                     <div class="active-user-chat">
-                        <div v-for="message in contacts[currentContact].messages" :key="message.date"
+                        <div v-for="(message, index) in contacts[currentContact].messages" :key="message.date"
                             :class="['message', message.status === 'sent' ? 'sent' : 'received']">
                             {{ message.message }}
+                            <div class="message-time">
+                                {{ getMessageTime(contacts[currentContact], index) }}
+                            </div>
                         </div>
                     </div>
 
@@ -141,7 +144,8 @@
                         </div>
 
                         <div class="input-container">
-                            <input type="text" placeholder="Scrivi un messaggio">
+                            <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage"
+                                @keydown.enter="sendMessage">
                         </div>
 
                         <div class="voice-message">

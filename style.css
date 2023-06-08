@@ -210,8 +210,10 @@ div.search-bar .input-container input[type="text"] {
 
 div.contacts-list {
     width: 100%;
+    height: 72%;
     background-color: rgba(255, 255, 255, 255);
-    overflow-y: auto;
+    overflow: scroll;
+    scrollbar-width: none;
 }
 
 div.contact-container {
@@ -317,6 +319,7 @@ div.active-user-chat {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    position: relative;
 }
 
 .sent {
@@ -368,4 +371,12 @@ div.active-user-text-space .input-container input[type="text"] {
 
 div.contact-time-header {
     color: #b1b1b1;
+}
+
+div.message-time{
+    font-size: 13px;
+    color: #bdc4ce;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
 }
