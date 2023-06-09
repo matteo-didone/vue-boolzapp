@@ -21,21 +21,29 @@
 
     <!-- App Container -->
     <div id="app">
+        <!-- General background that contains the two backgrounds -->
         <div class="background">
 
+            <!-- Green background -->
             <div class="background-header">
 
             </div>
 
+            <!-- Grey Background -->
             <div class="background-main-content">
 
             </div>
 
+            <!-- Main Chat -->
             <div class="main-chat">
+
+                <!-- Left Side of the Chat with Contacts -->
                 <div class="left-contacts">
 
+                    <!-- Where the user settings are -->
                     <div class="user-settings">
 
+                        <!-- User profle photo and name -->
                         <div class="user-photo-name">
 
                             <div class="user-photo">
@@ -48,13 +56,16 @@
 
                         </div>
 
+                        <!-- Icons For Options -->
                         <div class="icons">
                             <i class="fa-solid fa-circle-notch"></i>
                             <i class="fa-solid fa-message"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
+
                     </div>
 
+                    <!-- Notification Settings -->
                     <div class="notification-settings">
 
                         <div class="bell-container">
@@ -68,32 +79,58 @@
 
                     </div>
 
+                    <!-- Search Bar to Facilitate Finding Contacts -->
                     <div class="search-bar">
                         <div class="magnifying-lens-container">
                             <i class="fa-solid fa-search"></i>
                         </div>
 
+                        <!-- v-model="searchContact" is a vue two-way data binding, so any changes made to the input value will be reflected in the searchContact data property, and vice versa (updating the searchContact property in the Vue component will automatically update the input's value) -->
                         <div class="input-container">
                             <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact">
                         </div>
                     </div>
 
+                    <!-- Contacts List -->
                     <div class="contacts-list">
+
+                        <!-- 
+                            v-for iterates in the filteredContacts array, which is a computed property that returns an array of contacts filtered by the searchContact property
+
+                            We are dinamically creating a <div> element for each contact in the array 
+                            
+                            We use (contact, index) to define two loop variables: 
+                                -contact -> current contact object
+                                -index -> index of the current contact in the filteredContacts array
+                            
+                            :key="index" -> we use the index as a key because we don't have a unique identifier for each contact in the array (we could use the name property, but it's not unique) 
+
+                            :class="['contact-container', { 'contact-active': isActiveContact(index) }, { 'clicked-contact': isClickedContact(index) }]":
+                                -We're adding the 'contact-container' class to the <div> element
+                                -We use the isActiveContact and isClickedContact methods to add the 'contact-active' and 'clicked-contact' classes to the <div> element if the current contact is the active contact or if it's the clicked contact. To do this, we pass the index of the current contact to the methods and we check if the index is equal to the currentContact or clickedContact data properties. This is how we can change the background color of the active and clicked contacts.
+                            
+                            @click="setIndexContact(index, contact)": 
+                                -Sets up a click event listener on the <div> element. When the element is clicked, the setIndexContact method is called with the current index and contact object as arguments. This method sets the currentContact and clickedContact data properties to the current index and contact object, respectively. This is how we can change the active and clicked contacts.
+                        -->
                         <div v-for="(contact, index) in filteredContacts" :key="index"
                             :class="['contact-container', { 'contact-active': isActiveContact(index) }, { 'clicked-contact': isClickedContact(index) }]"
                             @click="setIndexContact(index, contact)">
 
+                            <!-- Container for the contact avatar, name and last message time -->
                             <div class="contact-avatar-and-info-container">
                                 <div class="contact-avatar">
+                                    <!-- :src and :alt allow us to dinamically pick the right avatar and alt attribute for each contact -->
                                     <img :src="contact.avatar" :alt="contact.name">
                                 </div>
 
+                                <!-- Container for the info -->
                                 <div class="contact-info">
                                     <div class="contact-name">{{ contact.name }}</div>
                                     <div class="contact-last-message">{{ getLastMessage(contact) }}</div>
                                 </div>
                             </div>
 
+                            <!-- Container for the last message time -->
                             <div class="contact-time">
                                 {{ getLastMessageTime(contact) }}
                             </div>
@@ -103,22 +140,28 @@
 
                 </div>
 
+                <!-- Right Side of the Chat with the Active Contact -->
                 <div class="right-chat">
 
+                    <!-- Active Contact Header -->
                     <div class="active-user-chat-header">
 
+                        <!-- Container for the contact avatar, name and last message time -->
                         <div class="contact-avatar-and-info-container">
                             <div class="contact-avatar">
                                 <img :src="contacts[currentContact].avatar" :alt="contacts[currentContact].name">
                             </div>
                             <div class="contact-info">
+                                <!-- The contact name dinamically changes based on the current contact -->
                                 <div class="contact-name">{{ contacts[currentContact].name }}</div>
                                 <div class="contact-time-header">
+                                    <!-- Last access changes based on the current contact -->
                                     Ultimo accesso oggi alle {{ getLastMessageTime(contacts[currentContact], index) }}
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Icons For Options -->
                         <div class="icons">
                             <i class="fa-solid fa-search"></i>
                             <i class="fa-solid fa-paperclip"></i>
@@ -127,19 +170,59 @@
 
                     </div>
 
+                    <!-- Active Contact Chat, where the messages are -->
                     <div class="active-user-chat">
+
+                        <!-- 
+                            We have an array called "contacts" with all the properties of the contacts. Inside this array of objects, there's another array called messages, which contains all the messages of the contact. So, we have an array of object contacts, and inside we have an array of objects messages.
+
+                            v-for iterates in the messages array of the currentContact object, which is the current contact that we're viewing.
+                            We are dinamically creating a <div> element for each message in the array 
+                            
+                            We use (message, index) to define two loop variables: 
+                                -message -> current message object
+                                -index -> index of the current message in the messages array
+                            
+                            :key="message.date" -> we use the message.date as a key because it's a unique identifier for each message in the array, since it's a timestamp and every message has a different timestamp
+
+                            :class=""['message', message.status === 'sent' ? 'sent' : 'received']"
+                                -We're adding the 'message' class to the <div> element, which is a generic class for all the messages in the chat, both the sent and received ones
+                                -Then, we're adding the 'sent' or 'received' class based on the message.status property:
+                                    -message.status === 'sent' -> Add the 'sent' class
+                                    -message.status === 'received' -> Add the 'received' class
+                                This is how we can change the background color of the sent and received messages
+                        -->
                         <div v-for="(message, index) in contacts[currentContact].messages" :key="message.date"
                             :class="['message', message.status === 'sent' ? 'sent' : 'received']"
-                            @click="toggleDropdown(currentContact, index)">
+                            >
+                            <!-- We dinamically change the message text based on the current message object -->
                             {{ message.message }}
                             <div class="message-time">
+                                <!-- We dinamically change the message time stamp based on the current message object -->
                                 {{ getMessageTime(contacts[currentContact], index) }}
                             </div>
 
+                            <!-- Dropdown Menu -->
+
+                            <!-- 
+                                v-if allows us to conditionally render a message based on the message.deletable property:
+                                    - message.deletable === true -> the element will be rendered (rendering means that the element will be added to the DOM)
+                                    - message.deletable === false -> the element will not be rendered (rendering means that the element will be added to the DOM)
+                                This is how we can show the dropdown menu only for the messages that are deletable
+
+                                @click="toggleDropdown(message)": 
+                                    -Sets up a click event listener on the <div> element. When the element is clicked, the toggleDropdown method is called with the currentContact and index as arguments. We use the contactIndex and messageIndex parameters to access the correct message in the messages array of the correct contact in the contacts array. This method sets the showMenu property of the current message to true. This is how we can show the dropdown menu when we click on a message.
+                            -->
                             <div class="dropdown" v-if="message.deletable" @click="toggleDropdown(message)">
                                 <button class="dropdown-toggle" type="button">
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </button>
+                                <!-- 
+                                    v-show allows us to conditionally render a message based on the message.showMenu property:
+                                        - message.showMenu === true -> the element will be rendered (rendering means that the element will be added to the DOM)
+                                        - message.showMenu === false -> the element will not be rendered (rendering means that the element will be added to the DOM)
+                                    This is how we can show the dropdown menu only for the messages that are deletable
+                                -->
                                 <div class="dropdown-menu" v-show="message.showMenu">
                                     <a class="dropdown-item" href="#" @click="deleteMessage(currentContact, index)">
                                         Delete
@@ -149,17 +232,22 @@
                         </div>
                     </div>
 
+                    <!-- Active Contact Footer -->
                     <div class="active-user-text-space">
 
+                        <!-- Emoji Container -->
                         <div class="emoji-container">
                             <i class="fa-solid fa-smile"></i>
                         </div>
 
+                        <!-- Input Text Container -->
                         <div class="input-container">
+                            <!-- v-model="newMessage" is a vue two-way data binding, so any changes made to the input value will be reflected in the newMessage data property, and vice versa (updating the newMessage property in the Vue component will automatically update the input's value) -->
                             <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage"
                                 @keydown.enter="sendMessage">
                         </div>
 
+                        <!-- Microphone Container -->
                         <div class="voice-message">
                             <i class="fa-solid fa-microphone"></i>
                         </div>

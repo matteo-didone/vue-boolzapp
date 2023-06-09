@@ -1,6 +1,3 @@
-// Milestone 5 - optional
-// Delete message: by clicking on the message, a dropdown menu appears that allows deleting the selected message
-
 const { createApp } = Vue;
 
 createApp({
@@ -314,12 +311,17 @@ createApp({
             currentContact: 0,
 
             // Add the newMessage property to the data object and set it to an empty string
+            // This property will be used to store the value of the input field used to send a new message (see the computed property below)
+            // It is binded to the input field in the view (see the v-model directive in HTML)
+            // It is also used to reset the input field after the message has been sent
             newMessage: '',
 
             // Clicked contact property to the data object and set it to null
             clickedContact: null,
 
             // Add the searchContact property to the data object and set it to an empty string
+            // This property will be used to store the value of the input field used to filter the contacts list by name (see the computed property below)
+            // It is binded to the input field in the view (see the v-model directive in HTML)
             searchContact: '',
         }
     },
@@ -422,8 +424,11 @@ createApp({
             }
         },
 
+        // toggleDropdown(contactIndex, messageIndex) is a method that toggles the dropdown menu of a message
         toggleDropdown(message) {
+            // We negate the current value of the showDropdown property of the message object (true becomes false and viceversa)
             message.showMenu = !message.showMenu;
+            // By doing so, we can toggle the dropdown menu of a message by clicking on it
         },
         
         deleteMessage(contactIndex, messageIndex) {
