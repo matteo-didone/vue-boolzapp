@@ -404,6 +404,7 @@ createApp({
                     date: formattedDate,
                     message: this.newMessage,
                     status: 'sent',
+                    deletable: 'true',
                 };
 
                 this.contacts[this.currentContact].messages.push(message);
@@ -414,6 +415,7 @@ createApp({
                         date: formattedDate,
                         message: 'Ok',
                         status: 'received',
+                        deletable: 'true',
                     };
                     this.contacts[this.currentContact].messages.push(response);
                 }, 1000);
@@ -424,9 +426,9 @@ createApp({
             message.showMenu = !message.showMenu;
         },
         
-        deleteMessage(contactIndex, messageIndex) { 
+        deleteMessage(contactIndex, messageIndex) {
             this.contacts[contactIndex].messages.splice(messageIndex, 1);
-        },
+        }        
 
     },
 
