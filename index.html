@@ -129,24 +129,23 @@
 
                     <div class="active-user-chat">
                         <div v-for="(message, index) in contacts[currentContact].messages" :key="message.date"
-                            :class="['message', message.status === 'sent' ? 'sent' : 'received']" @click="toggleDropdown(currentContact, index)">
+                            :class="['message', message.status === 'sent' ? 'sent' : 'received']"
+                            @click="toggleDropdown(currentContact, index)">
                             {{ message.message }}
                             <div class="message-time">
                                 {{ getMessageTime(contacts[currentContact], index) }}
                             </div>
-                            <div class="dropdown"
-                            v-if="message.deletable && message.showDropdown"
-                                @click="toggleDropdown(index)">
+
+                            <div class="dropdown" v-if="message.deletable" @click="toggleDropdown(message)">
                                 <button class="dropdown-toggle" type="button">
                                     <i class="fa-solid fa-chevron-down"></i>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#"
-                                            @click="deleteMessage(currentContact, clickedMessage)">
-                                            Delete
-                                        </a>
-                                    </div>
                                 </button>
-                            </div> 
+                                <div class="dropdown-menu" v-show="message.showMenu">
+                                    <a class="dropdown-item" href="#" @click="deleteMessage(currentContact, message)">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

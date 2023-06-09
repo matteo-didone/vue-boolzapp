@@ -420,6 +420,14 @@ createApp({
             }
         },
 
+        toggleDropdown(message) {
+            message.showMenu = !message.showMenu;
+        },
+        
+        deleteMessage(contactIndex, messageIndex) { 
+            this.contacts[contactIndex].messages.splice(messageIndex, 1);
+        },
+
     },
 
 }).mount('#app');

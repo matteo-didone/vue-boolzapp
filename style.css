@@ -3,7 +3,7 @@
 *:before,
 *:after {
     box-sizing: border-box;
-    font-family: 'Aspen-Black', sans-serif ,'FontAwesome';
+    font-family: 'Aspen-Black', sans-serif, 'FontAwesome';
 }
 
 @font-face {
@@ -228,7 +228,7 @@ div.contact-container {
 }
 
 .clicked-contact {
-    background-color: rgba(233,235,235,255);
+    background-color: rgba(233, 235, 235, 255);
 }
 
 div.contact-avatar-and-info-container {
@@ -312,7 +312,7 @@ div.active-user-chat {
 .message {
     margin: 10px;
     padding: 8px;
-    border-radius: 8px; 
+    border-radius: 8px;
     width: 320px;
     height: 50px;
     min-height: 50px;
@@ -334,7 +334,7 @@ div.active-user-chat {
 
 div.active-user-text-space {
     height: 70px;
-    background-color: rgba(243,238,234,255);
+    background-color: rgba(243, 238, 234, 255);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -350,7 +350,8 @@ div.active-user-text-space .voice-message {
     cursor: pointer;
 }
 
-div.active-user-text-space .emoji-container i, div.active-user-text-space .voice-message i  {
+div.active-user-text-space .emoji-container i,
+div.active-user-text-space .voice-message i {
     color: #b1b1b1;
     font-size: 20px;
 }
@@ -373,10 +374,43 @@ div.contact-time-header {
     color: #b1b1b1;
 }
 
-div.message-time{
+div.message-time {
     font-size: 13px;
     color: #bdc4ce;
     position: absolute;
     right: 5px;
     bottom: 5px;
+}
+
+.dropdown {
+    position: absolute;
+    right: 70px;
+    top: 5px;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.dropdown-toggle {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    border-radius: 4px;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.dropdown-item {
+    display: block;
+    color: #333333;
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
