@@ -1,6 +1,3 @@
-// Milestone 4
-// User search: by typing something in the left input, only the contacts whose names contain the entered letters are displayed (e.g., Marco, Matteo, Martina -> I write "mar" and only Marco and Martina remain)
-
 // Milestone 5 - optional
 // Delete message: by clicking on the message, a dropdown menu appears that allows deleting the selected message
 
@@ -141,7 +138,7 @@ createApp({
                         }
                     ],
                 },
-                // Contac   t Federico
+                // Contact Federico
                 {
                     name: 'Federico',
                     avatar: './img/avatar_7.jpg',
@@ -181,7 +178,76 @@ createApp({
                             status: 'received'
                         }
                     ],
-                }
+                },
+                {
+                    // Contact Matteo
+                    name: 'Matteo',
+                    avatar: './img/avatar_1.jpg',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Hai portato a spasso il cane?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Ricordati di stendere i panni',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 16:15:22',
+                            message: 'Tutto fatto!',
+                            status: 'received'
+                        }
+                    ],
+                },
+                {
+                    // Contact Martina
+                    name: 'Martina',
+                    avatar: './img/avatar_6.jpg',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Hai portato a spasso il cane?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Ricordati di stendere i panni',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 16:15:22',
+                            message: 'Tutto fatto!',
+                            status: 'received'
+                        }
+                    ],
+                },
+                {
+                    // Contact Marco
+                    name: 'Marco',
+                    avatar: './img/avatar_3.jpg',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Hai portato a spasso il cane?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Ricordati di stendere i panni',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 16:15:22',
+                            message: 'Tutto fatto!',
+                            status: 'received'
+                        }
+                    ],
+                },
             ],
 
             // Add the currentContact property to the data object and set it to 0
@@ -190,13 +256,38 @@ createApp({
             // Add the newMessage property to the data object and set it to an empty string
             newMessage: '',
 
-
+            // Clicked contact property to the data object and set it to null
             clickedContact: null,
+
+            // Add the searchContact property to the data object and set it to an empty string
+            searchContact: '',
         }
     },
 
+    // Computed properties are used to handle complex calculations of information that need to be displayed in the view (e.g. filtering, sorting, etc.)
+    // They're used to conditionally render things
+    // Add the filteredContacts computed property to your Vue app
+    computed: {
+        filteredContacts() {
+            return this.contacts.filter(contact => {
+                return contact.name.toLowerCase().includes(this.searchContact.toLowerCase());
+            });
+        }
+    },
+
+
     // Methods of the app
     methods: {
+
+        // Check if the index matches the currentContact value
+        isActiveContact(index) {
+            return index === this.currentContact;
+        },
+        
+        // Check if the index matches the clickedContact value
+        isClickedContact(index) {
+            return index === this.clickedContact;
+        },
 
         getLastMessage(contact) {
             const lastMessage = contact.messages[contact.messages.length - 1];
@@ -220,7 +311,7 @@ createApp({
         },
 
         getMessageTime(contact, index) {
-            const message =  contact.messages[index];
+            const message = contact.messages[index];
 
             if (message) {
                 const dateParts = message.date.split(' ');

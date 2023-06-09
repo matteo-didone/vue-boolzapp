@@ -314,8 +314,8 @@ div.active-user-chat {
     padding: 8px;
     border-radius: 8px; 
     width: 320px;
-    max-width: 80%;
     height: 50px;
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
